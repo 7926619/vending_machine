@@ -21,21 +21,9 @@ void Widget::changeMoney(int n)
 {
     money += n;
     ui->lcdNumber->display(QString::number(money));
-
-    if(money >= 100)
-        ui->pbCoffee->setEnabled(true);
-    else
-        ui->pbCoffee->setEnabled(false);
-
-    if(money >= 150)
-        ui->pbTea->setEnabled(true);
-    else
-        ui->pbTea->setEnabled(false);
-
-    if(money >= 200)
-        ui->pbGongcha->setEnabled(true);
-    else
-        ui->pbGongcha->setEnabled(false);
+    ui->pbCoffee->setEnabled(money >= 100);
+    ui->pbTea->setEnabled(money >= 150);
+    ui->pbGongcha->setEnabled(money >= 200);
 }
 
 void Widget::on_pb10_clicked()
